@@ -1,23 +1,71 @@
+/* Fijar el Navbar en la parte superior */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;  /* Asegura que el navbar esté por encima de otros contenidos */
+  background-color: #343a40 !important; /* Fondo oscuro */
+  padding: 10px 0; /* Ajuste de espaciado para que se vea bien */
+}
+
+/* Asegurar que el contenido no quede oculto detrás del Navbar */
+body {
+  padding-top: 80px;  /* Ajusta este valor dependiendo de la altura de tu navbar */
+  margin: 0; /* Elimina márgenes adicionales en el body */
+}
+
+/* Estilo de las Cards */
+.card {
+  width: 100%;
+  max-width: 300px; /* Tamaño máximo de las Card */
+  margin: 15px auto; /* Centra las tarjetas y da un pequeño margen */
+  padding: 1.5em; /* Ajuste de espaciado interno */
+  border-radius: 10px; /* Borde redondeado */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega sombra para darle profundidad */
+}
+
+.card img {
+  width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+  height: 200px; /* Controla la altura de la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+/* Estilo para las Cards dentro de un contenedor de fila */
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las cards se acomoden bien */
+  justify-content: space-around; /* Centra las tarjetas dentro de la fila */
+}
+
+/* Asegurarse de que el contenedor de la página no esté demasiado centrado */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  padding-top: 1rem; /* Ajuste de padding para que no quede tan pegado arriba */
+  text-align: left; /* Alineación a la izquierda del contenido, puedes cambiarlo a center si lo prefieres */
+  width: 100%; /* Asegura que el root ocupe el 100% de la pantalla */
 }
 
+/* Para que el logo tenga efecto de hover */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Añadir animación al logo si es necesario */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,12 +79,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

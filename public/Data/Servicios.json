@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "nombre": "Masaje Relajante",
+    "descripcion": "Un masaje suave para reducir el estrés y mejorar la circulación.",
+    "precio": 30,
+    "imagen": "/Data/logotipo.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Masaje Deportivo",
+    "descripcion": "Ideal para aliviar tensiones musculares después del ejercicio.",
+    "precio": 40,
+    "imagen": "/Data/logotipo.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Masaje con Piedras Calientes",
+    "descripcion": "Terapia con piedras calientes para relajar los músculos.",
+    "precio": 50,
+    "imagen": "/Data/logotipo.jpg"
+  },
+
+  {
+    "id": 4,
+    "nombre": "Masaje Thai",
+    "descripcion": "Masaje tradicional tailandés que incluye estiramientos y presiones.",
+    "precio": 60,
+    "imagen": "/Data/logotipo.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Facial Hidratante",
+    "descripcion": "Tratamiento facial para hidratar y revitalizar la piel.",
+    "precio": 45,
+    "imagen": "/Data/logotipo.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Masaje Aromaterapia",
+    "descripcion": "Masaje con aceites esenciales para relajar cuerpo y mente.",
+    "precio": 55,
+    "imagen": "/Data/logotipo.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Exfoliación Corporal",
+    "descripcion": "Exfoliación profunda para eliminar células muertas y mejorar la textura de la piel.",
+    "precio": 40,
+    "imagen": "/Data/logotipo.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Masaje Prenatal",
+    "descripcion": "Masaje diseñado especialmente para mujeres embarazadas, aliviando tensiones y dolores.",
+    "precio": 70,
+    "imagen": "/Data/logotipo.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Sauna y Spa",
+    "descripcion": "Relájate con una sesión de sauna y disfruta de la experiencia del spa.",
+    "precio": 25,
+    "imagen": "/Data/logotipo.jpg"
+  }
+]
