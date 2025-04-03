@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
-import logo from '../assets/logotipo.jpg'; 
 
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
+          {/* Aquí cambiamos la ruta de la imagen */}
           <img
-            src={logo}
+            src="/Data/logotipo.jpg" // Ruta correcta desde la carpeta public/Data
             alt="Logo Spa Oasis"
             style={{ width: '30px', marginRight: '10px' }}
           />
@@ -31,17 +31,17 @@ const NavBar = () => {
               <NavLink className="nav-link" to="/">Inicio</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/acerca">Acerca</NavLink> {/* Ruta a Acerca */}
+              <NavLink className="nav-link" to="/acerca">Acerca</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/servicios">Servicios</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contacto">Contacto</NavLink> {/* Ruta a Contacto */}
+              <NavLink className="nav-link" to="/contacto">Contacto</NavLink>
             </li>
           </ul>
         </div>
-        <CartWidget /> 
+        <CartWidget />
       </div>
     </nav>
   );
