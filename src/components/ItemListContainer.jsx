@@ -1,36 +1,48 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import ItemCard from "./ItemCard";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";  // Importamos la configuración de Firebase
+import ItemCard from "./ItemCard"; // Asegúrate de importar el componente ItemCard
 
 const ItemListContainer = () => {
   const [servicios, setServicios] = useState([]);
   const [categorias, setCategorias] = useState([]);
-  const { categoria } = useParams();
+  const { categoria } = useParams(); // Obtén la categoría desde la URL
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/Data/Servicios.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const categoriasUnicas = [...new Set(data.map((servicio) => servicio.categoria))];
-        setCategorias(categoriasUnicas);
+    const getServicios = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "Items"));  // Cambié "servicios" por "Items"
+        console.log("Snapshot de Firestore:", querySnapshot); // Verifica que tienes un snapshot
+         
+        const serviciosArray = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+        console.log("Servicios obtenidos:", serviciosArray); // Verifica los servicios obtenidos
 
-        if (categoria) {
-          setServicios(data.filter((servicio) => servicio.categoria === categoria));
-        } else {
-          setServicios(data);
-        }
-      })
-      .catch((error) => console.error("Error cargando datos:", error));
+        // Filtrar los servicios si hay una categoría seleccionada
+        const serviciosFiltrados = categoria 
+          ? serviciosArray.filter(servicio => servicio.categoria === categoria)
+          : serviciosArray;
+
+        setServicios(serviciosFiltrados);
+
+        // Extraemos las categorías únicas para el filtro
+        const categoriasUnicas = [...new Set(serviciosArray.map(servicio => servicio.categoria))];
+        setCategorias(categoriasUnicas);
+      } catch (error) {
+        console.error("Error al obtener los servicios:", error);
+      }
+    };
+
+    getServicios();
   }, [categoria]);
 
   const handleCategoriaChange = (e) => {
     const nuevaCategoria = e.target.value;
     if (nuevaCategoria) {
-      // Corrigiendo el error en la navegación, agregando las comillas
-      navigate(`/categoria/${nuevaCategoria}`);
+      navigate(`/categoria/${nuevaCategoria}`); // Navegamos con la nueva categoría
     } else {
-      navigate("/servicios");
+      navigate("/servicios"); // Si no seleccionamos categoría, mostramos todos los servicios
     }
   };
 
@@ -48,9 +60,13 @@ const ItemListContainer = () => {
       </select>
 
       <div className="row">
-        {servicios.map((servicio) => (
-          <ItemCard key={servicio.id} servicio={servicio} />
-        ))}
+        {servicios.length > 0 ? (
+          servicios.map((servicio) => (
+            <ItemCard key={servicio.id} servicio={servicio} />
+          ))
+        ) : (
+          <p>No hay servicios disponibles para esta categoría.</p>
+        )}
       </div>
     </div>
   );

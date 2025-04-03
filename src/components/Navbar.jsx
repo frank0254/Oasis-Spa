@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import CartWidget from "./CartWidget";  // Asegúrate de tener el componente del carrito
-import logo from '../assets/logotipo.jpg';  // Ruta de tu logo
+import CartWidget from "./CartWidget";
+import logo from '../assets/logotipo.jpg'; 
 
 const NavBar = () => {
   return (
@@ -9,10 +9,10 @@ const NavBar = () => {
         <NavLink className="navbar-brand" to="/">
           <img
             src={logo}
-            alt="Logo SPA Relax"
+            alt="Logo Spa Oasis"
             style={{ width: '30px', marginRight: '10px' }}
           />
-          SPA Relax
+          Spa Oasis
         </NavLink>
         <button
           className="navbar-toggler"
@@ -31,17 +31,17 @@ const NavBar = () => {
               <NavLink className="nav-link" to="/">Inicio</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/acerca">Acerca</NavLink>
+              <NavLink className="nav-link" to="/acerca">Acerca</NavLink> {/* Ruta a Acerca */}
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/servicios">Servicios</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contacto">Contacto</NavLink>
+              <NavLink className="nav-link" to="/contacto">Contacto</NavLink> {/* Ruta a Contacto */}
             </li>
           </ul>
         </div>
-        <CartWidget /> {/* Aquí va el ícono o widget de carrito */}
+        <CartWidget /> 
       </div>
     </nav>
   );

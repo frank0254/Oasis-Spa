@@ -1,82 +1,369 @@
-/* Fijar el Navbar en la parte superior */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;  /* Asegura que el navbar esté por encima de otros contenidos */
-  background-color: #343a40 !important; /* Fondo oscuro */
-  padding: 10px 0; /* Ajuste de espaciado para que se vea bien */
-}
-
 /* Asegurar que el contenido no quede oculto detrás del Navbar */
 body {
-  padding-top: 80px;  /* Ajusta este valor dependiendo de la altura de tu navbar */
-  margin: 0; /* Elimina márgenes adicionales en el body */
+  padding-top: 80px;
+  margin: 0;
+  background-color: #D3CB92; /* Beige claro */
+  color: #3E2A47; /* Marrón oscuro para el texto */
 }
 
 /* Estilo de las Cards */
 .card {
   width: 100%;
-  max-width: 300px; /* Tamaño máximo de las Card */
-  margin: 15px auto; /* Centra las tarjetas y da un pequeño margen */
-  padding: 1.5em; /* Ajuste de espaciado interno */
-  border-radius: 10px; /* Borde redondeado */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega sombra para darle profundidad */
+  max-width: 300px;
+  margin: 15px auto;
+  padding: 1.5em;
+  border-radius: 10px;
+  background-color: #EBE1D1; /* Beige claro */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 .card img {
-  width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
-  height: 200px; /* Controla la altura de la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
-  border-radius: 8px; /* Bordes redondeados para la imagen */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* Estilo para las Cards dentro de un contenedor de fila */
+.card img:hover {
+  transform: scale(1.05); /* Pequeño zoom en hover */
+}
+
+/* Contenedor de las Cards */
 .row {
   display: flex;
-  flex-wrap: wrap; /* Permite que las cards se acomoden bien */
-  justify-content: space-around; /* Centra las tarjetas dentro de la fila */
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-/* Asegurarse de que el contenedor de la página no esté demasiado centrado */
+/* Contenedor principal */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  padding-top: 1rem; /* Ajuste de padding para que no quede tan pegado arriba */
-  text-align: left; /* Alineación a la izquierda del contenido, puedes cambiarlo a center si lo prefieres */
-  width: 100%; /* Asegura que el root ocupe el 100% de la pantalla */
+  text-align: center;
+  width: 100%;
 }
 
-/* Para que el logo tenga efecto de hover */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Estilo del Navbar */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #3E2A47; /* Marrón oscuro */
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.navbar-nav .nav-link {
+  color: #3E2A47; /* Marrón oscuro */
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navbar-nav .nav-link:hover {
+  color: #6A4E23 !important; /* Marrón medio en hover */
 }
 
-/* Añadir animación al logo si es necesario */
-@keyframes logo-spin {
+/* Estilo del filtro de categorías en el Navbar */
+.filter-category {
+  background-color: #6A4E23; /* Marrón medio */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-category:hover {
+  background-color: #4F3720; /* Marrón oscuro en hover */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Efecto para las imágenes en el banner */
+.banner img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.banner img:hover {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px 0;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+}
+
+.home-container {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 400px;
+}
+
+.home-banner {
+  width: 100%;
+  height: 450px;
+}
+
+.home-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Estilos Globales para Botones */
+.btn {
+  background-color: #6A4E23;  /* Marrón medio */
+  border-color: #6A4E23;  /* Asegura que el borde tenga el mismo color */
+  color: white;
+}
+
+.btn:hover {
+  background-color: #4F3720;  /* Marrón oscuro al pasar el mouse */
+  border-color: #4F3720;
+}
+
+/* Estilo para el Carrito de Compras */
+.table {
+  background-color: #f8f9fa;  /* Blanco */
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #6A4E23;  /* Marrón medio */
+  color: white;
+  font-weight: bold;
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2; /* Fondo blanco suave para las filas impares */
+}
+
+/* Estilos para el formulario de reserva */
+.form-control {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button.btn {
+  background-color: #6A4E23; /* Marrón medio */
+  border-color: #6A4E23;
+  color: white;
+}
+
+button.btn:hover {
+  background-color: #4F3720; /* Marrón oscuro al pasar el mouse */
+  border-color: #4F3720;
+}
+
+/* Para el componente DatePicker (calendario) */
+.react-datepicker-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Estilos del Select (hora) */
+select.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para el calendario personalizado */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.calendar-day {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8; /* Blanco suave */
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.calendar-day:hover {
+  background-color: #e0e0e0; /* Gris claro */
+}
+
+.calendar-day:active {
+  background-color: #d0d0d0; /* Gris medio */
+}
+
+.react-calendar__tile.fecha-disponible {
+  background-color: #6A4E23;  /* Marrón medio */
+  color: white;
+}
+
+.react-calendar__tile.fecha-disponible:hover {
+  background-color: #4F3720; /* Marrón oscuro */
+}
+
+.fecha-ocupada {
+  background-color: #f8d7da;  /* Beige suave */
+  color: #721c24;  /* Marrón oscuro */
+}
+
+/* Estilo para la entrada de la fecha */
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #6A4E23; /* Marrón medio */
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #EBE1D1; /* Beige claro */
+  color: #3E2A47; /* Marrón oscuro */
+  transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+  border-color: #4F3720; /* Marrón oscuro al enfocar */
+  outline: none;
+}
+
+/* Estilos para los botones de hora */
+button {
+  background-color: #6A4E23; /* Marrón medio */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #4F3720; /* Marrón oscuro */
+  transform: translateY(-2px); /* Efecto de desplazamiento hacia arriba */
+}
+
+button:focus {
+  outline: none;
+}
+
+button.selected {
+  background-color: #28a745; /* Verde para la hora seleccionada */
+  transform: translateY(0);
+}
+
+button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button.selected:hover {
+  background-color: #218838; /* Cambia el color al pasar el mouse sobre la hora seleccionada */
+}
+
+/* Estilo para la sección AcercaDe */
+.acerca-container {
+  background-color: #f8f9fa; /* Fondo blanco suave */
+  padding: 30px 0;
+  border-radius: 10px;
+}
+
+/* Estilo para las filas en AcercaDe */
+.acerca-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Estilo para las imágenes */
+.acerca-img {
+  max-width: 100%; /* Limita la anchura de la imagen al contenedor */
+  height: auto; /* Mantiene la relación de aspecto */
+  border-radius: 10px; /* Bordes redondeados para la imagen */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para las imágenes */
+}
+
+/* Estilo para la columna de texto */
+.acerca-text {
+  font-size: 1.1rem; /* Aumentar el tamaño del texto */
+  color: #3E2A47; /* Marrón oscuro */
+  line-height: 1.6; /* Mejorar la legibilidad con un buen espaciado de líneas */
+  margin-top: 20px;
+}
+
+/* Títulos en la sección AcercaDe */
+.acerca-title {
+  font-size: 1.6rem; /* Título más grande */
+  font-weight: bold;
+  color: #6A4E23; /* Marrón medio */
+  margin-bottom: 15px;
+}
+
+/* Diseño en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .acerca-row {
+    flex-direction: column; /* Coloca las imágenes y texto uno debajo del otro */
+    text-align: center;
+  }
+
+  .acerca-img {
+    max-width: 90%; /* Reduce el tamaño de la imagen en pantallas pequeñas */
+    margin: 0 auto; /* Centra la imagen */
+  }
+
+  .acerca-text {
+    margin-top: 20px;
   }
 }
