@@ -23,9 +23,14 @@ function App() {
             </div>
           </div>
         } />
+        
         <Route path="/acerca" element={<AcercaDe />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/servicios" element={<ItemListContainer />} />
+
+        {/* ✅ Esta es la ruta que soluciona el filtro por categoría */}
+        <Route path="/categoria/:categoria" element={<ItemListContainer />} />
+        
         <Route path="/servicio/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/formulario" element={<CheckoutForm onConfirm={(data) => console.log(data)} />} />

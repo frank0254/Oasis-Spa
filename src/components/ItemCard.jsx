@@ -4,9 +4,9 @@ const ItemCard = ({ servicio }) => {
   return (
     <div className="col-md-4">
       <div className="card my-3">
-        {/* Aquí usamos la ruta de la imagen de Firebase directamente desde public/data/ */}
+        {/* Usamos la ruta de la imagen concatenada con /Data/ */}
         <img
-          src={`/data/${servicio.imagen}`} // Esto debería acceder correctamente a la carpeta public/data/
+          src={`/Data/${servicio.imagen}`} // Concatenamos /Data/ con el nombre de la imagen
           className="card-img-top"
           alt={servicio.nombre}
         />

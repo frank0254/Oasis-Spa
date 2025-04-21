@@ -64,7 +64,12 @@ const ItemDetailContainer = () => {
     <div>
       <h2>Detalle del Servicio</h2>
       <div className="d-flex align-items-center">
-        <img src={servicio.imagen} alt={servicio.nombre} style={{ width: '150px', marginRight: '20px' }} />
+        {/* Usamos la ruta correcta para la imagen */}
+        <img 
+          src={`/Data/${servicio.imagen}`}  // Ruta de la imagen en la carpeta public/Data
+          alt={servicio.nombre} 
+          style={{ width: '150px', marginRight: '20px' }} 
+        />
         <div>
           <h3>{servicio.nombre}</h3>
           <p>{servicio.descripcion}</p>

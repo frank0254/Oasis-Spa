@@ -1,6 +1,4 @@
 import React from 'react';
-import trayectoria from '../assets/trayectoria.jpeg'; // Ajusta la ruta de la imagen
-import equipo from '../assets/equipo.jpeg'; 
 
 const AcercaDe = () => {
   return (
@@ -11,7 +9,7 @@ const AcercaDe = () => {
         {/* Columna de la imagen */}
         <div className="col-md-4">
           <img 
-            src={trayectoria}  // Asegúrate de que la ruta esté bien
+            src="/Data/trayectoria.jpeg"  // Cambié la ruta para que apunte a public/Data
             alt="Trayectoria Spa Oasis"
             className="acerca-img img-fluid" 
           />
@@ -33,7 +31,7 @@ const AcercaDe = () => {
         {/* Columna de la imagen */}
         <div className="col-md-4">
           <img 
-            src={equipo}  // Asegúrate de que la ruta esté bien
+            src="/Data/equipo.jpeg"  // Cambié la ruta para que apunte a public/Data
             alt="Equipo Spa Oasis"
             className="acerca-img img-fluid" 
           />
